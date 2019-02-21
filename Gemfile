@@ -10,6 +10,11 @@ gem 'pg'
 gem 'puma'
 gem 'rails'
 
+# Trailblazer bundle
+gem 'dry-validation', '0.11.1'
+gem 'trailblazer-endpoint', github: 'trailblazer/trailblazer-endpoint'
+gem 'trailblazer-rails'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
