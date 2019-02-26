@@ -10,7 +10,7 @@ module Authentication
   end
 
   def authorize_request!
-    @auth_payload = JSON.parse(request.headers["Authorization"] || '')
+    @auth_payload = JSON.parse(request.headers['Authorization'] || '')
     raise UnauthorizedError if @auth_payload['user_id'].blank?
   rescue JSON::ParserError
     raise UnauthorizedError

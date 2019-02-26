@@ -1,0 +1,74 @@
+require: rubocop-rspec
+
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
+  TargetRubyVersion: 2.6.1
+
+Rails:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/ParallelAssignment:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'app/concepts/**/*.rb' # following Trailblazer convention to concepts naming
+
+Metrics/LineLength:
+  Max: 120
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'config/routes.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/**/*.rb'
+    - 'app/concepts/**/contract/*.rb'
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+    - 'config/routes.rb'
+
+Style/LambdaCall:
+  Exclude:
+    - 'app/controllers/**/*.rb' # using Trailblazer Operation.() syntax convention
+
+Lint/UnreachableCode:
+  Exclude:
+    - 'app/concepts/**/*.rb'
+
+RSpec/FilePath:
+  Exclude:
+    - 'spec/concepts/**/*.rb'
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Max: 22
+
+RSpec/MessageSpies:
+  EnforcedStyle: receive
+
+RSpec/ContextWording:
+  Exclude:
+    - 'spec/models/**/*.rb'
+
+RSpec/ImplicitSubject:
+  Exclude:
+    - 'spec/models/**/*.rb'
+
+RSpec/MessageChain:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Max: 5
