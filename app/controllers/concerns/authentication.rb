@@ -27,7 +27,9 @@ module Authentication
   def exception_respond(status, message)
     errors = { base: [message] }
 
-    render json: { errors: errors }, status: status
+    render jsonapi_errors: errors,
+           class: { Hash: Lib::Representer::HashErrorsSerializer },
+           status: status
   end
 
   class UnauthorizedError < StandardError; end

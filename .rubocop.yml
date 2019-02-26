@@ -38,9 +38,20 @@ Metrics/BlockLength:
     - 'spec/**/*.rb'
     - 'config/routes.rb'
 
+Style/Lambda:
+  Exclude:
+    - 'app/endpoints/**/*.rb'
+
 Style/LambdaCall:
   Exclude:
     - 'app/controllers/**/*.rb' # using Trailblazer Operation.() syntax convention
+
+Layout/IndentArray:
+  EnforcedStyle: consistent
+  
+Style/SignalException:
+  Exclude:
+    - 'app/concepts/**/*.rb' # using Trailblazer #fail method
 
 Lint/UnreachableCode:
   Exclude:

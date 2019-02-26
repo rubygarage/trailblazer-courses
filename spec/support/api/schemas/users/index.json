@@ -1,0 +1,177 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "data",
+    "links",
+    "jsonapi"
+  ],
+  "properties": {
+    "data": {
+      "$id": "#/properties/data",
+      "type": "array",
+      "title": "The Data Schema",
+      "items": {
+        "$id": "#/properties/data/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+          "id",
+          "type",
+          "attributes"
+        ],
+        "properties": {
+          "id": {
+            "$id": "#/properties/data/items/properties/id",
+            "type": "string",
+            "title": "The Id Schema",
+            "default": "",
+            "examples": [
+              "251"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "type": {
+            "$id": "#/properties/data/items/properties/type",
+            "type": "string",
+            "title": "The Type Schema",
+            "default": "",
+            "examples": [
+              "users"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "attributes": {
+            "$id": "#/properties/data/items/properties/attributes",
+            "type": "object",
+            "title": "The Attributes Schema",
+            "required": [
+              "first-name",
+              "last-name",
+              "email"
+            ],
+            "properties": {
+              "first-name": {
+                "$id": "#/properties/data/items/properties/attributes/properties/first-name",
+                "type": "string",
+                "title": "The First-name Schema",
+                "default": "",
+                "examples": [
+                  "Susann"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "last-name": {
+                "$id": "#/properties/data/items/properties/attributes/properties/last-name",
+                "type": "string",
+                "title": "The Last-name Schema",
+                "default": "",
+                "examples": [
+                  "Grimes"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "email": {
+                "$id": "#/properties/data/items/properties/attributes/properties/email",
+                "type": "string",
+                "title": "The Email Schema",
+                "default": "",
+                "examples": [
+                  "deb_braun@wizahaag.co.uk"
+                ],
+                "pattern": "^(.*)$"
+              }
+            }
+          }
+        }
+      }
+    },
+    "links": {
+      "$id": "#/properties/links",
+      "type": "object",
+      "title": "The Links Schema",
+      "required": [
+        "self",
+        "first",
+        "next",
+        "prev",
+        "last"
+      ],
+      "properties": {
+        "self": {
+          "$id": "#/properties/links/properties/self",
+          "type": "string",
+          "title": "The Self Schema",
+          "default": "",
+          "examples": [
+            "/users?page=2"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "first": {
+          "$id": "#/properties/links/properties/first",
+          "type": "string",
+          "title": "The First Schema",
+          "default": "",
+          "examples": [
+            "/users"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "next": {
+          "$id": "#/properties/links/properties/next",
+          "type": "string",
+          "title": "The Next Schema",
+          "default": "",
+          "examples": [
+            "/users?page=3"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "prev": {
+          "$id": "#/properties/links/properties/prev",
+          "type": "string",
+          "title": "The Prev Schema",
+          "default": "",
+          "examples": [
+            "/users?page=1"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "last": {
+          "$id": "#/properties/links/properties/last",
+          "type": "string",
+          "title": "The Last Schema",
+          "default": "",
+          "examples": [
+            "/users?page=4"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    },
+    "jsonapi": {
+      "$id": "#/properties/jsonapi",
+      "type": "object",
+      "title": "The Jsonapi Schema",
+      "required": [
+        "version"
+      ],
+      "properties": {
+        "version": {
+          "$id": "#/properties/jsonapi/properties/version",
+          "type": "string",
+          "title": "The Version Schema",
+          "default": "",
+          "examples": [
+            "1.0"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    }
+  }
+}
