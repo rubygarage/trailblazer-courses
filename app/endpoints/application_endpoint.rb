@@ -2,6 +2,12 @@
 
 class ApplicationEndpoint < Trailblazer::Endpoint
   Matcher = Dry::Matcher.new(
+    destroyed: Dry::Matcher::Case.new(
+      match: ->(result) {
+        result.success? && result[:model].try(:destroyed?)
+      },
+      resolve: ->(result) { result }
+    ),
     forbidden: Dry::Matcher::Case.new(
       match: ->(result) {
         result.failure? && result['result.policy.default']&.failure?
@@ -11,7 +17,8 @@ class ApplicationEndpoint < Trailblazer::Endpoint
     invalid: Dry::Matcher::Case.new(
       match: ->(result) {
         result.failure? &&
-          (result['result.contract.default']&.failure? || !result['result.contract.default'].errors.empty?)
+          (result['result.contract.default']&.failure? || result['result.contract.default'].present?) ||
+          result[:errors].present?
       },
       resolve: ->(result) { result }
     ),

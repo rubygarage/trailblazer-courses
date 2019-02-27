@@ -2,3 +2,4 @@ en:
   errors:
     unauthenticated: Authentication failed
     pagination_overflow: is out of limits
+    self_removal: Cannot remove self

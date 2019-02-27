@@ -5,6 +5,7 @@ module DefaultEndpoint
 
   def default_handler
     lambda do |match|
+      match.destroyed { |_result| head(:no_content) }
       match.forbidden { |_result| head(:forbidden) }
       match.invalid { |result| render_errors(result, :unprocessable_entity) }
       match.success { |result| render_response(result, :ok) }
@@ -18,9 +19,10 @@ module DefaultEndpoint
   private
 
   def render_errors(result, status)
-    render jsonapi_errors: result['contract.default'].errors,
+    render jsonapi_errors: result['contract.default']&.errors || result[:errors],
            class: {
-             'Reform::Contract::Errors': Lib::Representer::ReformErrorsSerializer
+             'Reform::Contract::Errors': Lib::Representer::ReformErrorsSerializer,
+             Hash: Lib::Representer::HashErrorsSerializer
            },
            status: status
   end
