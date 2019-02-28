@@ -1,0 +1,7 @@
+en:
+  employee_mailer:
+    reset_password:
+      subject: Your reset password link
+      title: Dear User!
+      message: You‘ve requested to restore your password. If you didn't request this, you can ignore this email.
+      link_text: Restore Password

@@ -18,6 +18,7 @@ gem 'trailblazer-rails'
 
 # Authentication
 gem 'bcrypt'
+gem 'jwt'
 
 # Pagination
 gem 'pagy'

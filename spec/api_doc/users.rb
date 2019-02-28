@@ -6,7 +6,7 @@ module ApiDoc
 
     document :api do
       resource 'Users' do
-        endpoint '/sers'
+        endpoint '/users'
         group 'Users'
       end
 

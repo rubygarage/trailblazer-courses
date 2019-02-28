@@ -5,9 +5,12 @@ module DefaultEndpoint
 
   def default_handler
     lambda do |match|
-      match.destroyed { |_result| head(:no_content) }
-      match.forbidden { |_result| head(:forbidden) }
+      match.created { |result| result[:renderer_options] ? render_response(result, :created) : head(:created) }
+      match.destroyed { head(:no_content) }
+      match.forbidden { head(:forbidden) }
+      match.gone { head(:gone) }
       match.invalid { |result| render_errors(result, :unprocessable_entity) }
+      match.no_content { head(:no_content) }
       match.success { |result| render_response(result, :ok) }
     end
   end

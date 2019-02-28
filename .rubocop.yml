@@ -38,9 +38,18 @@ Metrics/BlockLength:
     - 'spec/**/*.rb'
     - 'config/routes.rb'
 
+Metrics/AbcSize:
+  Exclude:
+    - 'app/controllers/concerns/default_endpoint.rb'
+
+Naming/MethodName:
+  Exclude:
+    - 'lib/macro/**/*.rb'
+    
 Style/Lambda:
   Exclude:
     - 'app/endpoints/**/*.rb'
+    - 'lib/macro/**/*.rb'
 
 Style/LambdaCall:
   Exclude:
@@ -48,7 +57,7 @@ Style/LambdaCall:
 
 Layout/IndentArray:
   EnforcedStyle: consistent
-  
+
 Style/SignalException:
   Exclude:
     - 'app/concepts/**/*.rb' # using Trailblazer #fail method
