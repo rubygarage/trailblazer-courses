@@ -5,6 +5,8 @@ en:
     self_removal: Cannot remove self
     restore_password:
       not_exists: User with such email doesn’t exist
+    account:
+      wrong_password: Wrong password
 
     rules:
       user_password:

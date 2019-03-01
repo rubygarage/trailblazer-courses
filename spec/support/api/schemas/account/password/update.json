@@ -1,0 +1,63 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "data",
+    "meta",
+    "jsonapi"
+  ],
+  "properties": {
+    "data": {
+      "$id": "#/properties/data",
+      "type": "null",
+      "title": "The Data Schema",
+      "default": null,
+      "examples": [
+        null
+      ]
+    },
+    "meta": {
+      "$id": "#/properties/meta",
+      "type": "object",
+      "title": "The Meta Schema",
+      "required": [
+        "auth"
+      ],
+      "properties": {
+        "auth": {
+          "$id": "#/properties/meta/properties/auth",
+          "type": "string",
+          "title": "The Auth Schema",
+          "default": "",
+          "examples": [
+            "{\"user_id\":7043}"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    },
+    "jsonapi": {
+      "$id": "#/properties/jsonapi",
+      "type": "object",
+      "title": "The Jsonapi Schema",
+      "required": [
+        "version"
+      ],
+      "properties": {
+        "version": {
+          "$id": "#/properties/jsonapi/properties/version",
+          "type": "string",
+          "title": "The Version Schema",
+          "default": "",
+          "examples": [
+            "1.0"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    }
+  }
+}
